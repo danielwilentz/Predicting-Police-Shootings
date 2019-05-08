@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>My Webpage</title>
+
+  <!-- include jQuery, so we have access to the $.post function -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <!-- include our own functions -->
+  <script src='static/js/model.js'></script>
+
+  <!-- bootstrap specific stuff -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
+
+</head>
+
+<body>
+
+  <div class="jumbotron text-center">
+    <h1>What's that Iris?</h1>
+    <p>Because sometimes, you want to do more than smell the roses</p>
+  </div>
+
+  <!-- Use navbar just as a visual divider -->
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  </nav>
+  <div class="container" style="margin-top:30px">
+    <div class="row">
+      <div class="col-sm-4">
+        <h2>About:</h2>
+        <hr class="d-sm-none">
+        Never before have you been so desparate to know the species of flower!
+      </div>
+      <div class="col-sm-4">
+        <h3>Tell me about the flower</h3>
+
+        <br>
+        hispanic rate = <span id='hispanic_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="Percent_Hispanic" onchange="moveSlider()">
+
+        <br>
+        white rate= <span id='white_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="Percent_White" onchange="moveSlider()">
+
+        <br>
+        black rate= <span id='black_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="Percent_Black" onchange="moveSlider()">
+
+        <br>
+        native rate= <span id='native_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="Percent_Native" onchange="moveSlider()">
+
+        <br>
+        asian rate= <span id='asian_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="Percent_Asian" onchange="moveSlider()">
+
+        <br>
+        pacific rate= <span id='pacific_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="Percent_Pacific" onchange="moveSlider()">
+
+
+
+        <br>
+        voting age citizen= <span id='voting_age_citizens'>0</span> years
+        <br>
+        <input type="range" min="0" max="100000" step="100" value="0" id="Num_Voting_Age_Citizens" onchange="moveSlider()">
+
+        <br>
+        income per cap= <span id='income_per_capita'>0</span> dollars
+        <br>
+        <input type="range" min="0" max="100000" step="100" value="0" id="Income_Per_Capita" onchange="moveSlider()">
+
+        <br>
+        poverty rate= <span id='poverty_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="Poverty_Rate" onchange="moveSlider()">
+
+        <br>
+        child poverty rate= <span id='child_poverty_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="Child_Poverty_Rate" onchange="moveSlider()">
+
+        
+
+        <br>
+        Professional rate= <span id='professional_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="Professional_Rate" onchange="moveSlider()">
+
+        <br>
+        Service rate= <span id='service_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="Service_Rate" onchange="moveSlider()">
+
+        <br>
+        Office rate= <span id='office_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="Office_Rate" onchange="moveSlider()">
+
+        <br>
+        Construction rate= <span id='construction_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="Construction_Rate" onchange="moveSlider()">
+
+        <br>
+        Production rate= <span id='production_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="Production_Rate" onchange="moveSlider()">
+
+
+        <br>
+        Drive rate= <span id='drive_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="Drive_Rate" onchange="moveSlider()">
+
+        <br>
+        Carpool rate= <span id='carpool_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="Carpool_Rate" onchange="moveSlider()">
+
+        <br>
+        Transit rate= <span id='transit_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="Transit_Rate" onchange="moveSlider()">
+
+        <br>
+        Walk rate= <span id='walk_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="Walk_Rate" onchange="moveSlider()">
+
+        <br>
+        OtherTransp rate= <span id='OtherTransp_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="OtherTransp_Rate" onchange="moveSlider()">
+
+        <br>
+        WorkAtHome rate= <span id='production_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="WorkAtHome_Rate" onchange="moveSlider()">
+
+
+
+        <br>
+        Mean Commute= <span id='mean_commute'>0</span> minutes
+        <br>
+        <input type="range" min="0" max="90" step="1" value="0" id="Mean_Commute" onchange="moveSlider()">
+
+        <br>
+        Employed rate= <span id='employment_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="Employed_Rate" onchange="moveSlider()">
+
+        <br>
+        PrivateWork rate= <span id='private_work_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="PrivateWork_Rate" onchange="moveSlider()">
+
+        <br>
+        PublicWork rate= <span id='public_work_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="PublicWork_Rate" onchange="moveSlider()">
+
+        <br>
+        SelfEmployed rate= <span id='self_employment_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="SelfEmployed_Rate" onchange="moveSlider()">
+
+        <br>
+        FamilyWork rate= <span id='family_work_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="FamilyWork_Rate" onchange="moveSlider()">
+
+        <br>
+        Unemployed rate= <span id='unemployment_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="Unemployed_Rate" onchange="moveSlider()">
+
+
+
+        <br>
+        Percent Men= <span id='men_rate_value'>0</span> percent
+        <br>
+        <input type="range" min="0" max="100" step="1" value="0" id="Men_Rate" onchange="moveSlider()">
+
+
+
+      </div>
+
+      <div class="col-sm-4">
+        <!-- stores the most likely result -->
+        <div class="row">
+          <div id='results'></div>
+        </div>
+
+        <!-- shows the list of all results -->
+        <div class="row">
+          <div id='list_results'></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+function moveSlider(){
+  // Just update all the text for all the sliders
+  const ids = ["Percent_Hispanic", "Percent_White", "Percent_Black", "Percent_Native", "Percent_Asian", 
+  "Percent_Pacific", "Num_Voting_Age_Citizens", "Income_Per_Capita", "Poverty_Rate", "Child_Poverty_Rate",
+  "Professional_Rate", "Service_Rate", "Office_Rate", "Construction_Rate", "Production_Rate", 
+  "Drive_Rate", "Carpool_Rate", "Transit_Rate", "Walk_Rate", "OtherTransp_Rate", "WorkAtHome_Rate",
+  "Mean_Commute", "Employed_Rate", "PrivateWork_Rate", "PublicWork_Rate", "SelfEmployed_Rate", "FamilyWork_Rate",
+  "Unemployed_Rate", "Men_Rate"];
+  ids.forEach((id) => {
+    const value = $(`#${id}`).val();
+    $(`#${id}_value`).html(value);
+  });
+
+  // Finally, process the model
+  process();
+}
+</script>
+</html>
